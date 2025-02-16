@@ -1,4 +1,4 @@
-# 🏆 NestLance – AI-Powered Freelancer CRM & Automation
+# NestLance – AI-Powered Freelancer CRM & Automation
 
 This repository is a **showcase project** for my **portfolio and CV**, demonstrating expertise in **full-stack development** using **Nx, NestJS, Swagger, and Angular**.
 It is designed to manage **freelancers & consultants** by automating client interactions, invoicing, and project management with AI-powered features.
