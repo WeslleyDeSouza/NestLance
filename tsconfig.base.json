@@ -18,7 +18,8 @@
     "baseUrl": ".",
     "paths": {
       "auth/Routes": ["apps/ui/auth/src/app/remote-entry/entry.routes.ts"],
-      "crm/Routes": ["apps/ui/crm/src/app/remote-entry/entry.routes.ts"]
+      "crm/Routes": ["apps/ui/crm/src/app/remote-entry/entry.routes.ts"],
+      "project/Routes": ["apps/ui/project/src/app/remote-entry/entry.routes.ts"]
     }
   },
   "exclude": ["node_modules"]

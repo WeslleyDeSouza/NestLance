@@ -1,0 +1,17 @@
+{
+  "name": "ms-notify-email-e2e",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "implicitDependencies": ["ms-notify-email"],
+  "targets": {
+    "e2e": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{e2eProjectRoot}"],
+      "options": {
+        "jestConfig": "apps/api/ms-notify-email-e2e/jest.config.ts",
+        "passWithNoTests": true
+      },
+      "dependsOn": ["ms-notify-email:build"]
+    }
+  }
+}

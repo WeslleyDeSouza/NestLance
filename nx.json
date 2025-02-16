@@ -49,7 +49,12 @@
       "options": {
         "targetName": "test"
       },
-      "exclude": ["apps/api/ms-crm-e2e/**/*", "apps/api/ms-auth-e2e/**/*"]
+      "exclude": [
+        "apps/api/ms-crm-e2e/**/*",
+        "apps/api/ms-auth-e2e/**/*",
+        "apps/api/ms-project-e2e/**/*",
+        "apps/api/ms-notify-email-e2e/**/*"
+      ]
     },
     {
       "plugin": "@nx/cypress/plugin",
