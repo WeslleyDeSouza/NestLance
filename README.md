@@ -4,6 +4,7 @@ This repository is a **showcase project** for my **portfolio and CV**, demonstra
 It is designed to manage **freelancers & consultants** by automating client interactions, invoicing, and project management with AI-powered features.
 
 ## User story
+...
 
 ## Architecture
     
