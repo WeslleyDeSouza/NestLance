@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "graph:build":"nx graph --file=graph.json",
-    "graph:mermaid":"npm run graph:build && npx nx-mermaid-grapher -f graph.json"
+    "graph:build": "nx graph --groupByFolder --file=graph.json",
+    "graph:mermaid": "npm run graph:build && npx nx-mermaid-grapher -f graph.json"
   },
   "private": true,
   "devDependencies": {
@@ -68,10 +68,14 @@
     "@nestjs/common": "^10.0.2",
     "@nestjs/core": "^10.0.2",
     "@nestjs/platform-express": "^10.0.2",
+    "@nestjs/typeorm": "^11.0.0",
+    "@nx/angular": "^20.4.4",
     "axios": "^1.6.0",
+    "mysql2": "^3.12.0",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.8.0",
-    "zone.js": "~0.15.0",
-    "@nx/angular": "^20.4.4"
+    "sqlite3": "^5.1.7",
+    "typeorm": "^0.3.20",
+    "zone.js": "~0.15.0"
   }
 }
