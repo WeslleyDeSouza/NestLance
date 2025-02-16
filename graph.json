@@ -1,0 +1,2352 @@
+{
+  "graph": {
+    "nodes": {
+      "ms-auth-e2e": {
+        "name": "ms-auth-e2e",
+        "type": "e2e",
+        "data": {
+          "root": "apps/api/ms-auth-e2e",
+          "projectType": "application",
+          "targets": {
+            "typecheck": {
+              "dependsOn": [
+                "^typecheck"
+              ],
+              "options": {
+                "cwd": "apps/api/ms-auth-e2e",
+                "command": "tsc --build --emitDeclarationOnly"
+              },
+              "cache": true,
+              "inputs": [
+                "production",
+                "!{workspaceRoot}/node_modules",
+                {
+                  "dependentTasksOutputFiles": "**/*.d.ts"
+                },
+                {
+                  "externalDependencies": [
+                    "typescript"
+                  ]
+                }
+              ],
+              "outputs": [],
+              "syncGenerators": [
+                "@nx/js:typescript-sync"
+              ],
+              "metadata": {
+                "technologies": [
+                  "typescript"
+                ],
+                "description": "Runs type-checking for the project.",
+                "help": {
+                  "command": "npx tsc --build --help",
+                  "example": {
+                    "args": [
+                      "--force"
+                    ]
+                  }
+                }
+              },
+              "executor": "nx:run-commands",
+              "configurations": {},
+              "parallelism": true
+            },
+            "lint": {
+              "cache": true,
+              "options": {
+                "cwd": "apps/api/ms-auth-e2e",
+                "command": "eslint ."
+              },
+              "inputs": [
+                "default",
+                "^default",
+                "{workspaceRoot}/eslint.config.mjs",
+                "{workspaceRoot}/tools/eslint-rules/**/*",
+                {
+                  "externalDependencies": [
+                    "eslint"
+                  ]
+                }
+              ],
+              "outputs": [
+                "{options.outputFile}"
+              ],
+              "metadata": {
+                "technologies": [
+                  "eslint"
+                ],
+                "description": "Runs ESLint on project",
+                "help": {
+                  "command": "npx eslint --help",
+                  "example": {
+                    "options": {
+                      "max-warnings": 0
+                    }
+                  }
+                }
+              },
+              "executor": "nx:run-commands",
+              "configurations": {},
+              "parallelism": true
+            },
+            "e2e": {
+              "executor": "@nx/jest:jest",
+              "outputs": [
+                "{workspaceRoot}/coverage/{e2eProjectRoot}"
+              ],
+              "options": {
+                "jestConfig": "apps/api/ms-auth-e2e/jest.config.ts",
+                "passWithNoTests": true
+              },
+              "dependsOn": [
+                "ms-auth:build"
+              ],
+              "configurations": {},
+              "parallelism": true
+            }
+          },
+          "name": "ms-auth-e2e",
+          "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+          "implicitDependencies": [
+            "ms-auth"
+          ],
+          "tags": []
+        }
+      },
+      "ms-crm-e2e": {
+        "name": "ms-crm-e2e",
+        "type": "e2e",
+        "data": {
+          "root": "apps/api/ms-crm-e2e",
+          "projectType": "application",
+          "targets": {
+            "typecheck": {
+              "dependsOn": [
+                "^typecheck"
+              ],
+              "options": {
+                "cwd": "apps/api/ms-crm-e2e",
+                "command": "tsc --build --emitDeclarationOnly"
+              },
+              "cache": true,
+              "inputs": [
+                "production",
+                "!{workspaceRoot}/node_modules",
+                {
+                  "dependentTasksOutputFiles": "**/*.d.ts"
+                },
+                {
+                  "externalDependencies": [
+                    "typescript"
+                  ]
+                }
+              ],
+              "outputs": [],
+              "syncGenerators": [
+                "@nx/js:typescript-sync"
+              ],
+              "metadata": {
+                "technologies": [
+                  "typescript"
+                ],
+                "description": "Runs type-checking for the project.",
+                "help": {
+                  "command": "npx tsc --build --help",
+                  "example": {
+                    "args": [
+                      "--force"
+                    ]
+                  }
+                }
+              },
+              "executor": "nx:run-commands",
+              "configurations": {},
+              "parallelism": true
+            },
+            "lint": {
+              "cache": true,
+              "options": {
+                "cwd": "apps/api/ms-crm-e2e",
+                "command": "eslint ."
+              },
+              "inputs": [
+                "default",
+                "^default",
+                "{workspaceRoot}/eslint.config.mjs",
+                "{workspaceRoot}/tools/eslint-rules/**/*",
+                {
+                  "externalDependencies": [
+                    "eslint"
+                  ]
+                }
+              ],
+              "outputs": [
+                "{options.outputFile}"
+              ],
+              "metadata": {
+                "technologies": [
+                  "eslint"
+                ],
+                "description": "Runs ESLint on project",
+                "help": {
+                  "command": "npx eslint --help",
+                  "example": {
+                    "options": {
+                      "max-warnings": 0
+                    }
+                  }
+                }
+              },
+              "executor": "nx:run-commands",
+              "configurations": {},
+              "parallelism": true
+            },
+            "e2e": {
+              "executor": "@nx/jest:jest",
+              "outputs": [
+                "{workspaceRoot}/coverage/{e2eProjectRoot}"
+              ],
+              "options": {
+                "jestConfig": "apps/api/ms-crm-e2e/jest.config.ts",
+                "passWithNoTests": true
+              },
+              "dependsOn": [
+                "ms-crm:build"
+              ],
+              "configurations": {},
+              "parallelism": true
+            }
+          },
+          "name": "ms-crm-e2e",
+          "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+          "implicitDependencies": [
+            "ms-crm"
+          ],
+          "tags": []
+        }
+      },
+      "shell-e2e": {
+        "name": "shell-e2e",
+        "type": "e2e",
+        "data": {
+          "root": "apps/ui/shell-e2e",
+          "projectType": "application",
+          "targets": {
+            "typecheck": {
+              "dependsOn": [
+                "^typecheck"
+              ],
+              "options": {
+                "cwd": "apps/ui/shell-e2e",
+                "command": "tsc --build --emitDeclarationOnly"
+              },
+              "cache": true,
+              "inputs": [
+                "{workspaceRoot}/tsconfig.base.json",
+                "{projectRoot}/tsconfig.json",
+                "{projectRoot}/**/*.ts",
+                "{projectRoot}/**/*.js",
+                "{projectRoot}/cypress.config.ts",
+                "{projectRoot}/**/*.cy.ts",
+                "{projectRoot}/**/*.cy.js",
+                "{projectRoot}/**/*.d.ts",
+                "!{workspaceRoot}/node_modules",
+                "^production",
+                {
+                  "externalDependencies": [
+                    "typescript"
+                  ]
+                }
+              ],
+              "outputs": [
+                "{workspaceRoot}/dist/out-tsc",
+                "{workspaceRoot}/dist/out-tsc/apps/ui/shell-e2e/*.tsbuildinfo"
+              ],
+              "syncGenerators": [
+                "@nx/js:typescript-sync"
+              ],
+              "metadata": {
+                "technologies": [
+                  "typescript"
+                ],
+                "description": "Runs type-checking for the project.",
+                "help": {
+                  "command": "npx tsc --build --help",
+                  "example": {
+                    "args": [
+                      "--force"
+                    ]
+                  }
+                }
+              },
+              "executor": "nx:run-commands",
+              "configurations": {},
+              "parallelism": true
+            },
+            "e2e": {
+              "options": {
+                "cwd": "apps/ui/shell-e2e",
+                "command": "cypress run"
+              },
+              "cache": true,
+              "inputs": [
+                "default",
+                "^production",
+                {
+                  "externalDependencies": [
+                    "cypress"
+                  ]
+                }
+              ],
+              "outputs": [
+                "{workspaceRoot}/dist/cypress/apps/ui/shell-e2e/videos",
+                "{workspaceRoot}/dist/cypress/apps/ui/shell-e2e/screenshots"
+              ],
+              "parallelism": false,
+              "metadata": {
+                "technologies": [
+                  "cypress"
+                ],
+                "description": "Runs Cypress Tests",
+                "help": {
+                  "command": "npx cypress run --help",
+                  "example": {
+                    "args": [
+                      "--dev",
+                      "--headed"
+                    ]
+                  }
+                }
+              },
+              "configurations": {
+                "production": {
+                  "command": "cypress run --env webServerCommand=\"npx nx run shell:serve-static\""
+                }
+              },
+              "executor": "nx:run-commands"
+            },
+            "e2e-ci--src/e2e/app.cy.ts": {
+              "outputs": [
+                "{workspaceRoot}\\dist\\cypress\\apps\\ui\\shell-e2e\\videos\\src-e2e-app-cy-ts",
+                "{workspaceRoot}\\dist\\cypress\\apps\\ui\\shell-e2e\\screenshots\\src-e2e-app-cy-ts"
+              ],
+              "inputs": [
+                "default",
+                "^production",
+                {
+                  "externalDependencies": [
+                    "cypress"
+                  ]
+                }
+              ],
+              "cache": true,
+              "options": {
+                "cwd": "apps/ui/shell-e2e",
+                "command": "cypress run --env webServerCommand=\"npx nx run shell:serve-static\" --spec src/e2e/app.cy.ts --config=\"{\\\"baseUrl\\\":\\\"http://localhost:4200\\\",\\\"e2e\\\":{\\\"videosFolder\\\":\\\"..\\\\\\\\..\\\\\\\\..\\\\\\\\dist\\\\\\\\cypress\\\\\\\\apps\\\\\\\\ui\\\\\\\\shell-e2e\\\\\\\\videos\\\\\\\\src-e2e-app-cy-ts\\\",\\\"screenshotsFolder\\\":\\\"..\\\\\\\\..\\\\\\\\..\\\\\\\\dist\\\\\\\\cypress\\\\\\\\apps\\\\\\\\ui\\\\\\\\shell-e2e\\\\\\\\screenshots\\\\\\\\src-e2e-app-cy-ts\\\"}}\""
+              },
+              "parallelism": false,
+              "metadata": {
+                "technologies": [
+                  "cypress"
+                ],
+                "description": "Runs Cypress Tests in src/e2e/app.cy.ts in CI",
+                "help": {
+                  "command": "npx cypress run --help",
+                  "example": {
+                    "args": [
+                      "--dev",
+                      "--headed"
+                    ]
+                  }
+                }
+              },
+              "executor": "nx:run-commands",
+              "configurations": {}
+            },
+            "e2e-ci": {
+              "executor": "nx:noop",
+              "cache": true,
+              "inputs": [
+                "default",
+                "^production",
+                {
+                  "externalDependencies": [
+                    "cypress"
+                  ]
+                }
+              ],
+              "outputs": [
+                "{workspaceRoot}/dist/cypress/apps/ui/shell-e2e/videos",
+                "{workspaceRoot}/dist/cypress/apps/ui/shell-e2e/screenshots"
+              ],
+              "dependsOn": [
+                {
+                  "target": "e2e-ci--src/e2e/app.cy.ts",
+                  "projects": "self",
+                  "params": "forward"
+                }
+              ],
+              "parallelism": false,
+              "metadata": {
+                "technologies": [
+                  "cypress"
+                ],
+                "description": "Runs Cypress Tests in CI",
+                "nonAtomizedTarget": "e2e",
+                "help": {
+                  "command": "npx cypress run --help",
+                  "example": {
+                    "args": [
+                      "--dev",
+                      "--headed"
+                    ]
+                  }
+                }
+              },
+              "configurations": {},
+              "options": {}
+            },
+            "open-cypress": {
+              "options": {
+                "cwd": "apps/ui/shell-e2e",
+                "command": "cypress open"
+              },
+              "metadata": {
+                "technologies": [
+                  "cypress"
+                ],
+                "description": "Opens Cypress",
+                "help": {
+                  "command": "npx cypress open --help",
+                  "example": {
+                    "args": [
+                      "--dev",
+                      "--e2e"
+                    ]
+                  }
+                }
+              },
+              "executor": "nx:run-commands",
+              "configurations": {},
+              "parallelism": true
+            },
+            "lint": {
+              "cache": true,
+              "options": {
+                "cwd": "apps/ui/shell-e2e",
+                "command": "eslint ."
+              },
+              "inputs": [
+                "default",
+                "^default",
+                "{workspaceRoot}/eslint.config.mjs",
+                "{projectRoot}/eslint.config.mjs",
+                "{workspaceRoot}/tools/eslint-rules/**/*",
+                {
+                  "externalDependencies": [
+                    "eslint"
+                  ]
+                }
+              ],
+              "outputs": [
+                "{options.outputFile}"
+              ],
+              "metadata": {
+                "technologies": [
+                  "eslint"
+                ],
+                "description": "Runs ESLint on project",
+                "help": {
+                  "command": "npx eslint --help",
+                  "example": {
+                    "options": {
+                      "max-warnings": 0
+                    }
+                  }
+                }
+              },
+              "executor": "nx:run-commands",
+              "configurations": {},
+              "parallelism": true
+            }
+          },
+          "metadata": {
+            "targetGroups": {
+              "E2E (CI)": [
+                "e2e-ci--src/e2e/app.cy.ts",
+                "e2e-ci"
+              ]
+            }
+          },
+          "name": "shell-e2e",
+          "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+          "sourceRoot": "apps/ui/shell-e2e/src",
+          "tags": [],
+          "implicitDependencies": [
+            "shell"
+          ]
+        }
+      },
+      "auth-e2e": {
+        "name": "auth-e2e",
+        "type": "e2e",
+        "data": {
+          "root": "apps/ui/auth-e2e",
+          "projectType": "application",
+          "targets": {
+            "typecheck": {
+              "dependsOn": [
+                "^typecheck"
+              ],
+              "options": {
+                "cwd": "apps/ui/auth-e2e",
+                "command": "tsc --build --emitDeclarationOnly"
+              },
+              "cache": true,
+              "inputs": [
+                "{workspaceRoot}/tsconfig.base.json",
+                "{projectRoot}/tsconfig.json",
+                "{projectRoot}/**/*.ts",
+                "{projectRoot}/**/*.js",
+                "{projectRoot}/cypress.config.ts",
+                "{projectRoot}/**/*.cy.ts",
+                "{projectRoot}/**/*.cy.js",
+                "{projectRoot}/**/*.d.ts",
+                "!{workspaceRoot}/node_modules",
+                "^production",
+                {
+                  "externalDependencies": [
+                    "typescript"
+                  ]
+                }
+              ],
+              "outputs": [
+                "{workspaceRoot}/dist/out-tsc",
+                "{workspaceRoot}/dist/out-tsc/apps/ui/auth-e2e/*.tsbuildinfo"
+              ],
+              "syncGenerators": [
+                "@nx/js:typescript-sync"
+              ],
+              "metadata": {
+                "technologies": [
+                  "typescript"
+                ],
+                "description": "Runs type-checking for the project.",
+                "help": {
+                  "command": "npx tsc --build --help",
+                  "example": {
+                    "args": [
+                      "--force"
+                    ]
+                  }
+                }
+              },
+              "executor": "nx:run-commands",
+              "configurations": {},
+              "parallelism": true
+            },
+            "e2e": {
+              "options": {
+                "cwd": "apps/ui/auth-e2e",
+                "command": "cypress run"
+              },
+              "cache": true,
+              "inputs": [
+                "default",
+                "^production",
+                {
+                  "externalDependencies": [
+                    "cypress"
+                  ]
+                }
+              ],
+              "outputs": [
+                "{workspaceRoot}/dist/cypress/apps/ui/auth-e2e/videos",
+                "{workspaceRoot}/dist/cypress/apps/ui/auth-e2e/screenshots"
+              ],
+              "parallelism": false,
+              "metadata": {
+                "technologies": [
+                  "cypress"
+                ],
+                "description": "Runs Cypress Tests",
+                "help": {
+                  "command": "npx cypress run --help",
+                  "example": {
+                    "args": [
+                      "--dev",
+                      "--headed"
+                    ]
+                  }
+                }
+              },
+              "configurations": {
+                "production": {
+                  "command": "cypress run --env webServerCommand=\"npx nx run auth:serve-static\""
+                }
+              },
+              "executor": "nx:run-commands"
+            },
+            "e2e-ci--src/e2e/app.cy.ts": {
+              "outputs": [
+                "{workspaceRoot}\\dist\\cypress\\apps\\ui\\auth-e2e\\videos\\src-e2e-app-cy-ts",
+                "{workspaceRoot}\\dist\\cypress\\apps\\ui\\auth-e2e\\screenshots\\src-e2e-app-cy-ts"
+              ],
+              "inputs": [
+                "default",
+                "^production",
+                {
+                  "externalDependencies": [
+                    "cypress"
+                  ]
+                }
+              ],
+              "cache": true,
+              "options": {
+                "cwd": "apps/ui/auth-e2e",
+                "command": "cypress run --env webServerCommand=\"npx nx run auth:serve-static\" --spec src/e2e/app.cy.ts --config=\"{\\\"baseUrl\\\":\\\"http://localhost:4200\\\",\\\"e2e\\\":{\\\"videosFolder\\\":\\\"..\\\\\\\\..\\\\\\\\..\\\\\\\\dist\\\\\\\\cypress\\\\\\\\apps\\\\\\\\ui\\\\\\\\auth-e2e\\\\\\\\videos\\\\\\\\src-e2e-app-cy-ts\\\",\\\"screenshotsFolder\\\":\\\"..\\\\\\\\..\\\\\\\\..\\\\\\\\dist\\\\\\\\cypress\\\\\\\\apps\\\\\\\\ui\\\\\\\\auth-e2e\\\\\\\\screenshots\\\\\\\\src-e2e-app-cy-ts\\\"}}\""
+              },
+              "parallelism": false,
+              "metadata": {
+                "technologies": [
+                  "cypress"
+                ],
+                "description": "Runs Cypress Tests in src/e2e/app.cy.ts in CI",
+                "help": {
+                  "command": "npx cypress run --help",
+                  "example": {
+                    "args": [
+                      "--dev",
+                      "--headed"
+                    ]
+                  }
+                }
+              },
+              "executor": "nx:run-commands",
+              "configurations": {}
+            },
+            "e2e-ci": {
+              "executor": "nx:noop",
+              "cache": true,
+              "inputs": [
+                "default",
+                "^production",
+                {
+                  "externalDependencies": [
+                    "cypress"
+                  ]
+                }
+              ],
+              "outputs": [
+                "{workspaceRoot}/dist/cypress/apps/ui/auth-e2e/videos",
+                "{workspaceRoot}/dist/cypress/apps/ui/auth-e2e/screenshots"
+              ],
+              "dependsOn": [
+                {
+                  "target": "e2e-ci--src/e2e/app.cy.ts",
+                  "projects": "self",
+                  "params": "forward"
+                }
+              ],
+              "parallelism": false,
+              "metadata": {
+                "technologies": [
+                  "cypress"
+                ],
+                "description": "Runs Cypress Tests in CI",
+                "nonAtomizedTarget": "e2e",
+                "help": {
+                  "command": "npx cypress run --help",
+                  "example": {
+                    "args": [
+                      "--dev",
+                      "--headed"
+                    ]
+                  }
+                }
+              },
+              "configurations": {},
+              "options": {}
+            },
+            "open-cypress": {
+              "options": {
+                "cwd": "apps/ui/auth-e2e",
+                "command": "cypress open"
+              },
+              "metadata": {
+                "technologies": [
+                  "cypress"
+                ],
+                "description": "Opens Cypress",
+                "help": {
+                  "command": "npx cypress open --help",
+                  "example": {
+                    "args": [
+                      "--dev",
+                      "--e2e"
+                    ]
+                  }
+                }
+              },
+              "executor": "nx:run-commands",
+              "configurations": {},
+              "parallelism": true
+            },
+            "lint": {
+              "cache": true,
+              "options": {
+                "cwd": "apps/ui/auth-e2e",
+                "command": "eslint ."
+              },
+              "inputs": [
+                "default",
+                "^default",
+                "{workspaceRoot}/eslint.config.mjs",
+                "{projectRoot}/eslint.config.mjs",
+                "{workspaceRoot}/tools/eslint-rules/**/*",
+                {
+                  "externalDependencies": [
+                    "eslint"
+                  ]
+                }
+              ],
+              "outputs": [
+                "{options.outputFile}"
+              ],
+              "metadata": {
+                "technologies": [
+                  "eslint"
+                ],
+                "description": "Runs ESLint on project",
+                "help": {
+                  "command": "npx eslint --help",
+                  "example": {
+                    "options": {
+                      "max-warnings": 0
+                    }
+                  }
+                }
+              },
+              "executor": "nx:run-commands",
+              "configurations": {},
+              "parallelism": true
+            }
+          },
+          "metadata": {
+            "targetGroups": {
+              "E2E (CI)": [
+                "e2e-ci--src/e2e/app.cy.ts",
+                "e2e-ci"
+              ]
+            }
+          },
+          "name": "auth-e2e",
+          "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+          "sourceRoot": "apps/ui/auth-e2e/src",
+          "tags": [],
+          "implicitDependencies": [
+            "auth"
+          ]
+        }
+      },
+      "ms-auth": {
+        "name": "ms-auth",
+        "type": "app",
+        "data": {
+          "root": "apps/api/ms-auth",
+          "projectType": "application",
+          "targets": {
+            "typecheck": {
+              "dependsOn": [
+                "^typecheck"
+              ],
+              "options": {
+                "cwd": "apps/api/ms-auth",
+                "command": "tsc --build --emitDeclarationOnly"
+              },
+              "cache": true,
+              "inputs": [
+                "production",
+                "!{workspaceRoot}/node_modules",
+                {
+                  "dependentTasksOutputFiles": "**/*.d.ts"
+                },
+                {
+                  "externalDependencies": [
+                    "typescript"
+                  ]
+                }
+              ],
+              "outputs": [],
+              "syncGenerators": [
+                "@nx/js:typescript-sync"
+              ],
+              "metadata": {
+                "technologies": [
+                  "typescript"
+                ],
+                "description": "Runs type-checking for the project.",
+                "help": {
+                  "command": "npx tsc --build --help",
+                  "example": {
+                    "args": [
+                      "--force"
+                    ]
+                  }
+                }
+              },
+              "executor": "nx:run-commands",
+              "configurations": {},
+              "parallelism": true
+            },
+            "build": {
+              "cache": true,
+              "dependsOn": [
+                "^build"
+              ],
+              "inputs": [
+                "production",
+                "^production",
+                {
+                  "externalDependencies": [
+                    "webpack-cli"
+                  ]
+                }
+              ],
+              "outputs": [
+                "{workspaceRoot}/dist\\apps\\api\\ms-auth"
+              ],
+              "metadata": {
+                "technologies": [
+                  "webpack"
+                ],
+                "description": "Runs Webpack build",
+                "help": {
+                  "command": "npx webpack-cli build --help",
+                  "example": {
+                    "options": {
+                      "json": "stats.json"
+                    },
+                    "args": [
+                      "--profile"
+                    ]
+                  }
+                }
+              },
+              "executor": "nx:run-commands",
+              "options": {
+                "cwd": "apps/api/ms-auth",
+                "args": [
+                  "node-env=production"
+                ],
+                "command": "webpack-cli build"
+              },
+              "configurations": {
+                "development": {
+                  "args": [
+                    "node-env=development"
+                  ]
+                }
+              },
+              "parallelism": true
+            },
+            "serve": {
+              "executor": "@nx/js:node",
+              "defaultConfiguration": "development",
+              "dependsOn": [
+                "build"
+              ],
+              "options": {
+                "buildTarget": "ms-auth:build",
+                "runBuildTargetDependencies": false
+              },
+              "configurations": {
+                "development": {
+                  "buildTarget": "ms-auth:build:development"
+                },
+                "production": {
+                  "buildTarget": "ms-auth:build:production"
+                }
+              },
+              "parallelism": true
+            },
+            "preview": {
+              "options": {
+                "cwd": "apps/api/ms-auth",
+                "args": [
+                  "--node-env=production"
+                ],
+                "command": "webpack-cli serve"
+              },
+              "metadata": {
+                "technologies": [
+                  "webpack"
+                ],
+                "description": "Starts Webpack dev server in production mode",
+                "help": {
+                  "command": "npx webpack-cli serve --help",
+                  "example": {
+                    "options": {
+                      "args": [
+                        "--client-progress",
+                        "--history-api-fallback "
+                      ]
+                    }
+                  }
+                }
+              },
+              "executor": "nx:run-commands",
+              "configurations": {},
+              "parallelism": true
+            },
+            "serve-static": {
+              "dependsOn": [
+                "build"
+              ],
+              "executor": "@nx/web:file-server",
+              "options": {
+                "buildTarget": "build",
+                "spa": true
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "build-deps": {
+              "dependsOn": [
+                "^build"
+              ],
+              "configurations": {},
+              "options": {},
+              "parallelism": true,
+              "executor": "nx:noop"
+            },
+            "watch-deps": {
+              "dependsOn": [
+                "build-deps"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "npx nx watch --projects ms-auth --includeDependentProjects -- npx nx build-deps ms-auth"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "test": {
+              "metadata": {
+                "technologies": [
+                  "jest"
+                ],
+                "description": "Run Jest Tests",
+                "help": {
+                  "command": "npx jest --help",
+                  "example": {
+                    "options": {
+                      "coverage": true
+                    }
+                  }
+                }
+              },
+              "cache": true,
+              "inputs": [
+                "default",
+                "^production",
+                "{workspaceRoot}\\jest.preset.js",
+                {
+                  "externalDependencies": [
+                    "jest"
+                  ]
+                }
+              ],
+              "outputs": [
+                "{workspaceRoot}\\coverage\\apps\\api\\ms-auth"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "cwd": "apps/api/ms-auth",
+                "env": {
+                  "TS_NODE_COMPILER_OPTIONS": "{\"moduleResolution\":\"node10\"}"
+                },
+                "command": "jest",
+                "passWithNoTests": true
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "lint": {
+              "cache": true,
+              "options": {
+                "cwd": "apps/api/ms-auth",
+                "command": "eslint ."
+              },
+              "inputs": [
+                "default",
+                "^default",
+                "{workspaceRoot}/eslint.config.mjs",
+                "{workspaceRoot}/tools/eslint-rules/**/*",
+                {
+                  "externalDependencies": [
+                    "eslint"
+                  ]
+                }
+              ],
+              "outputs": [
+                "{options.outputFile}"
+              ],
+              "metadata": {
+                "technologies": [
+                  "eslint"
+                ],
+                "description": "Runs ESLint on project",
+                "help": {
+                  "command": "npx eslint --help",
+                  "example": {
+                    "options": {
+                      "max-warnings": 0
+                    }
+                  }
+                }
+              },
+              "executor": "nx:run-commands",
+              "configurations": {},
+              "parallelism": true
+            }
+          },
+          "metadata": {},
+          "name": "ms-auth",
+          "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+          "sourceRoot": "apps/api/ms-auth/src",
+          "tags": [],
+          "implicitDependencies": []
+        }
+      },
+      "crm-e2e": {
+        "name": "crm-e2e",
+        "type": "e2e",
+        "data": {
+          "root": "apps/ui/crm-e2e",
+          "projectType": "application",
+          "targets": {
+            "typecheck": {
+              "dependsOn": [
+                "^typecheck"
+              ],
+              "options": {
+                "cwd": "apps/ui/crm-e2e",
+                "command": "tsc --build --emitDeclarationOnly"
+              },
+              "cache": true,
+              "inputs": [
+                "{workspaceRoot}/tsconfig.base.json",
+                "{projectRoot}/tsconfig.json",
+                "{projectRoot}/**/*.ts",
+                "{projectRoot}/**/*.js",
+                "{projectRoot}/cypress.config.ts",
+                "{projectRoot}/**/*.cy.ts",
+                "{projectRoot}/**/*.cy.js",
+                "{projectRoot}/**/*.d.ts",
+                "!{workspaceRoot}/node_modules",
+                "^production",
+                {
+                  "externalDependencies": [
+                    "typescript"
+                  ]
+                }
+              ],
+              "outputs": [
+                "{workspaceRoot}/dist/out-tsc",
+                "{workspaceRoot}/dist/out-tsc/apps/ui/crm-e2e/*.tsbuildinfo"
+              ],
+              "syncGenerators": [
+                "@nx/js:typescript-sync"
+              ],
+              "metadata": {
+                "technologies": [
+                  "typescript"
+                ],
+                "description": "Runs type-checking for the project.",
+                "help": {
+                  "command": "npx tsc --build --help",
+                  "example": {
+                    "args": [
+                      "--force"
+                    ]
+                  }
+                }
+              },
+              "executor": "nx:run-commands",
+              "configurations": {},
+              "parallelism": true
+            },
+            "e2e": {
+              "options": {
+                "cwd": "apps/ui/crm-e2e",
+                "command": "cypress run"
+              },
+              "cache": true,
+              "inputs": [
+                "default",
+                "^production",
+                {
+                  "externalDependencies": [
+                    "cypress"
+                  ]
+                }
+              ],
+              "outputs": [
+                "{workspaceRoot}/dist/cypress/apps/ui/crm-e2e/videos",
+                "{workspaceRoot}/dist/cypress/apps/ui/crm-e2e/screenshots"
+              ],
+              "parallelism": false,
+              "metadata": {
+                "technologies": [
+                  "cypress"
+                ],
+                "description": "Runs Cypress Tests",
+                "help": {
+                  "command": "npx cypress run --help",
+                  "example": {
+                    "args": [
+                      "--dev",
+                      "--headed"
+                    ]
+                  }
+                }
+              },
+              "configurations": {
+                "production": {
+                  "command": "cypress run --env webServerCommand=\"npx nx run crm:serve-static\""
+                }
+              },
+              "executor": "nx:run-commands"
+            },
+            "e2e-ci--src/e2e/app.cy.ts": {
+              "outputs": [
+                "{workspaceRoot}\\dist\\cypress\\apps\\ui\\crm-e2e\\videos\\src-e2e-app-cy-ts",
+                "{workspaceRoot}\\dist\\cypress\\apps\\ui\\crm-e2e\\screenshots\\src-e2e-app-cy-ts"
+              ],
+              "inputs": [
+                "default",
+                "^production",
+                {
+                  "externalDependencies": [
+                    "cypress"
+                  ]
+                }
+              ],
+              "cache": true,
+              "options": {
+                "cwd": "apps/ui/crm-e2e",
+                "command": "cypress run --env webServerCommand=\"npx nx run crm:serve-static\" --spec src/e2e/app.cy.ts --config=\"{\\\"baseUrl\\\":\\\"http://localhost:4200\\\",\\\"e2e\\\":{\\\"videosFolder\\\":\\\"..\\\\\\\\..\\\\\\\\..\\\\\\\\dist\\\\\\\\cypress\\\\\\\\apps\\\\\\\\ui\\\\\\\\crm-e2e\\\\\\\\videos\\\\\\\\src-e2e-app-cy-ts\\\",\\\"screenshotsFolder\\\":\\\"..\\\\\\\\..\\\\\\\\..\\\\\\\\dist\\\\\\\\cypress\\\\\\\\apps\\\\\\\\ui\\\\\\\\crm-e2e\\\\\\\\screenshots\\\\\\\\src-e2e-app-cy-ts\\\"}}\""
+              },
+              "parallelism": false,
+              "metadata": {
+                "technologies": [
+                  "cypress"
+                ],
+                "description": "Runs Cypress Tests in src/e2e/app.cy.ts in CI",
+                "help": {
+                  "command": "npx cypress run --help",
+                  "example": {
+                    "args": [
+                      "--dev",
+                      "--headed"
+                    ]
+                  }
+                }
+              },
+              "executor": "nx:run-commands",
+              "configurations": {}
+            },
+            "e2e-ci": {
+              "executor": "nx:noop",
+              "cache": true,
+              "inputs": [
+                "default",
+                "^production",
+                {
+                  "externalDependencies": [
+                    "cypress"
+                  ]
+                }
+              ],
+              "outputs": [
+                "{workspaceRoot}/dist/cypress/apps/ui/crm-e2e/videos",
+                "{workspaceRoot}/dist/cypress/apps/ui/crm-e2e/screenshots"
+              ],
+              "dependsOn": [
+                {
+                  "target": "e2e-ci--src/e2e/app.cy.ts",
+                  "projects": "self",
+                  "params": "forward"
+                }
+              ],
+              "parallelism": false,
+              "metadata": {
+                "technologies": [
+                  "cypress"
+                ],
+                "description": "Runs Cypress Tests in CI",
+                "nonAtomizedTarget": "e2e",
+                "help": {
+                  "command": "npx cypress run --help",
+                  "example": {
+                    "args": [
+                      "--dev",
+                      "--headed"
+                    ]
+                  }
+                }
+              },
+              "configurations": {},
+              "options": {}
+            },
+            "open-cypress": {
+              "options": {
+                "cwd": "apps/ui/crm-e2e",
+                "command": "cypress open"
+              },
+              "metadata": {
+                "technologies": [
+                  "cypress"
+                ],
+                "description": "Opens Cypress",
+                "help": {
+                  "command": "npx cypress open --help",
+                  "example": {
+                    "args": [
+                      "--dev",
+                      "--e2e"
+                    ]
+                  }
+                }
+              },
+              "executor": "nx:run-commands",
+              "configurations": {},
+              "parallelism": true
+            },
+            "lint": {
+              "cache": true,
+              "options": {
+                "cwd": "apps/ui/crm-e2e",
+                "command": "eslint ."
+              },
+              "inputs": [
+                "default",
+                "^default",
+                "{workspaceRoot}/eslint.config.mjs",
+                "{projectRoot}/eslint.config.mjs",
+                "{workspaceRoot}/tools/eslint-rules/**/*",
+                {
+                  "externalDependencies": [
+                    "eslint"
+                  ]
+                }
+              ],
+              "outputs": [
+                "{options.outputFile}"
+              ],
+              "metadata": {
+                "technologies": [
+                  "eslint"
+                ],
+                "description": "Runs ESLint on project",
+                "help": {
+                  "command": "npx eslint --help",
+                  "example": {
+                    "options": {
+                      "max-warnings": 0
+                    }
+                  }
+                }
+              },
+              "executor": "nx:run-commands",
+              "configurations": {},
+              "parallelism": true
+            }
+          },
+          "metadata": {
+            "targetGroups": {
+              "E2E (CI)": [
+                "e2e-ci--src/e2e/app.cy.ts",
+                "e2e-ci"
+              ]
+            }
+          },
+          "name": "crm-e2e",
+          "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+          "sourceRoot": "apps/ui/crm-e2e/src",
+          "tags": [],
+          "implicitDependencies": [
+            "crm"
+          ]
+        }
+      },
+      "ms-crm": {
+        "name": "ms-crm",
+        "type": "app",
+        "data": {
+          "root": "apps/api/ms-crm",
+          "projectType": "application",
+          "targets": {
+            "typecheck": {
+              "dependsOn": [
+                "^typecheck"
+              ],
+              "options": {
+                "cwd": "apps/api/ms-crm",
+                "command": "tsc --build --emitDeclarationOnly"
+              },
+              "cache": true,
+              "inputs": [
+                "production",
+                "!{workspaceRoot}/node_modules",
+                {
+                  "dependentTasksOutputFiles": "**/*.d.ts"
+                },
+                {
+                  "externalDependencies": [
+                    "typescript"
+                  ]
+                }
+              ],
+              "outputs": [],
+              "syncGenerators": [
+                "@nx/js:typescript-sync"
+              ],
+              "metadata": {
+                "technologies": [
+                  "typescript"
+                ],
+                "description": "Runs type-checking for the project.",
+                "help": {
+                  "command": "npx tsc --build --help",
+                  "example": {
+                    "args": [
+                      "--force"
+                    ]
+                  }
+                }
+              },
+              "executor": "nx:run-commands",
+              "configurations": {},
+              "parallelism": true
+            },
+            "build": {
+              "cache": true,
+              "dependsOn": [
+                "^build"
+              ],
+              "inputs": [
+                "production",
+                "^production",
+                {
+                  "externalDependencies": [
+                    "webpack-cli"
+                  ]
+                }
+              ],
+              "outputs": [
+                "{workspaceRoot}/dist\\apps\\api\\ms-crm"
+              ],
+              "metadata": {
+                "technologies": [
+                  "webpack"
+                ],
+                "description": "Runs Webpack build",
+                "help": {
+                  "command": "npx webpack-cli build --help",
+                  "example": {
+                    "options": {
+                      "json": "stats.json"
+                    },
+                    "args": [
+                      "--profile"
+                    ]
+                  }
+                }
+              },
+              "executor": "nx:run-commands",
+              "options": {
+                "cwd": "apps/api/ms-crm",
+                "args": [
+                  "node-env=production"
+                ],
+                "command": "webpack-cli build"
+              },
+              "configurations": {
+                "development": {
+                  "args": [
+                    "node-env=development"
+                  ]
+                }
+              },
+              "parallelism": true
+            },
+            "serve": {
+              "executor": "@nx/js:node",
+              "defaultConfiguration": "development",
+              "dependsOn": [
+                "build"
+              ],
+              "options": {
+                "buildTarget": "ms-crm:build",
+                "runBuildTargetDependencies": false
+              },
+              "configurations": {
+                "development": {
+                  "buildTarget": "ms-crm:build:development"
+                },
+                "production": {
+                  "buildTarget": "ms-crm:build:production"
+                }
+              },
+              "parallelism": true
+            },
+            "preview": {
+              "options": {
+                "cwd": "apps/api/ms-crm",
+                "args": [
+                  "--node-env=production"
+                ],
+                "command": "webpack-cli serve"
+              },
+              "metadata": {
+                "technologies": [
+                  "webpack"
+                ],
+                "description": "Starts Webpack dev server in production mode",
+                "help": {
+                  "command": "npx webpack-cli serve --help",
+                  "example": {
+                    "options": {
+                      "args": [
+                        "--client-progress",
+                        "--history-api-fallback "
+                      ]
+                    }
+                  }
+                }
+              },
+              "executor": "nx:run-commands",
+              "configurations": {},
+              "parallelism": true
+            },
+            "serve-static": {
+              "dependsOn": [
+                "build"
+              ],
+              "executor": "@nx/web:file-server",
+              "options": {
+                "buildTarget": "build",
+                "spa": true
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "build-deps": {
+              "dependsOn": [
+                "^build"
+              ],
+              "configurations": {},
+              "options": {},
+              "parallelism": true,
+              "executor": "nx:noop"
+            },
+            "watch-deps": {
+              "dependsOn": [
+                "build-deps"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "npx nx watch --projects ms-crm --includeDependentProjects -- npx nx build-deps ms-crm"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "test": {
+              "metadata": {
+                "technologies": [
+                  "jest"
+                ],
+                "description": "Run Jest Tests",
+                "help": {
+                  "command": "npx jest --help",
+                  "example": {
+                    "options": {
+                      "coverage": true
+                    }
+                  }
+                }
+              },
+              "cache": true,
+              "inputs": [
+                "default",
+                "^production",
+                "{workspaceRoot}\\jest.preset.js",
+                {
+                  "externalDependencies": [
+                    "jest"
+                  ]
+                }
+              ],
+              "outputs": [
+                "{workspaceRoot}\\coverage\\apps\\api\\ms-crm"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "cwd": "apps/api/ms-crm",
+                "env": {
+                  "TS_NODE_COMPILER_OPTIONS": "{\"moduleResolution\":\"node10\"}"
+                },
+                "command": "jest",
+                "passWithNoTests": true
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "lint": {
+              "cache": true,
+              "options": {
+                "cwd": "apps/api/ms-crm",
+                "command": "eslint ."
+              },
+              "inputs": [
+                "default",
+                "^default",
+                "{workspaceRoot}/eslint.config.mjs",
+                "{workspaceRoot}/tools/eslint-rules/**/*",
+                {
+                  "externalDependencies": [
+                    "eslint"
+                  ]
+                }
+              ],
+              "outputs": [
+                "{options.outputFile}"
+              ],
+              "metadata": {
+                "technologies": [
+                  "eslint"
+                ],
+                "description": "Runs ESLint on project",
+                "help": {
+                  "command": "npx eslint --help",
+                  "example": {
+                    "options": {
+                      "max-warnings": 0
+                    }
+                  }
+                }
+              },
+              "executor": "nx:run-commands",
+              "configurations": {},
+              "parallelism": true
+            }
+          },
+          "metadata": {},
+          "name": "ms-crm",
+          "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+          "sourceRoot": "apps/api/ms-crm/src",
+          "tags": [],
+          "implicitDependencies": []
+        }
+      },
+      "shell": {
+        "name": "shell",
+        "type": "app",
+        "data": {
+          "root": "apps/ui/shell",
+          "projectType": "application",
+          "targets": {
+            "typecheck": {
+              "dependsOn": [
+                "^typecheck"
+              ],
+              "options": {
+                "cwd": "apps/ui/shell",
+                "command": "tsc --build --emitDeclarationOnly"
+              },
+              "cache": true,
+              "inputs": [
+                "production",
+                "!{workspaceRoot}/node_modules",
+                {
+                  "dependentTasksOutputFiles": "**/*.d.ts"
+                },
+                {
+                  "externalDependencies": [
+                    "typescript"
+                  ]
+                }
+              ],
+              "outputs": [],
+              "syncGenerators": [
+                "@nx/js:typescript-sync"
+              ],
+              "metadata": {
+                "technologies": [
+                  "typescript"
+                ],
+                "description": "Runs type-checking for the project.",
+                "help": {
+                  "command": "npx tsc --build --help",
+                  "example": {
+                    "args": [
+                      "--force"
+                    ]
+                  }
+                }
+              },
+              "executor": "nx:run-commands",
+              "configurations": {},
+              "parallelism": true
+            },
+            "build": {
+              "executor": "@nx/angular:webpack-browser",
+              "outputs": [
+                "{options.outputPath}"
+              ],
+              "options": {
+                "outputPath": "dist/apps/ui/shell",
+                "index": "apps/ui/shell/src/index.html",
+                "main": "apps/ui/shell/src/main.ts",
+                "polyfills": [
+                  "zone.js"
+                ],
+                "tsConfig": "apps/ui/shell/tsconfig.app.json",
+                "inlineStyleLanguage": "scss",
+                "assets": [
+                  {
+                    "glob": "**/*",
+                    "input": "apps/ui/shell/public"
+                  }
+                ],
+                "styles": [
+                  "apps/ui/shell/src/styles.scss"
+                ],
+                "scripts": [],
+                "customWebpackConfig": {
+                  "path": "apps/ui/shell/webpack.config.ts"
+                }
+              },
+              "configurations": {
+                "production": {
+                  "budgets": [
+                    {
+                      "type": "initial",
+                      "maximumWarning": "500kb",
+                      "maximumError": "1mb"
+                    },
+                    {
+                      "type": "anyComponentStyle",
+                      "maximumWarning": "4kb",
+                      "maximumError": "8kb"
+                    }
+                  ],
+                  "outputHashing": "all",
+                  "customWebpackConfig": {
+                    "path": "apps/ui/shell/webpack.prod.config.ts"
+                  }
+                },
+                "development": {
+                  "buildOptimizer": false,
+                  "optimization": false,
+                  "vendorChunk": true,
+                  "extractLicenses": false,
+                  "sourceMap": true,
+                  "namedChunks": true
+                }
+              },
+              "defaultConfiguration": "production",
+              "parallelism": true,
+              "cache": true,
+              "dependsOn": [
+                "^build"
+              ],
+              "inputs": [
+                "production",
+                "^production",
+                {
+                  "env": "NX_MF_DEV_REMOTES"
+                }
+              ]
+            },
+            "serve": {
+              "executor": "@nx/angular:module-federation-dev-server",
+              "options": {
+                "port": 4200,
+                "publicHost": "http://localhost:4200"
+              },
+              "configurations": {
+                "production": {
+                  "buildTarget": "shell:build:production"
+                },
+                "development": {
+                  "buildTarget": "shell:build:development"
+                }
+              },
+              "defaultConfiguration": "development",
+              "parallelism": true
+            },
+            "preview": {
+              "options": {
+                "cwd": "apps/ui/shell",
+                "args": [
+                  "--node-env=production"
+                ],
+                "command": "webpack-cli serve"
+              },
+              "metadata": {
+                "technologies": [
+                  "webpack"
+                ],
+                "description": "Starts Webpack dev server in production mode",
+                "help": {
+                  "command": "npx webpack-cli serve --help",
+                  "example": {
+                    "options": {
+                      "args": [
+                        "--client-progress",
+                        "--history-api-fallback "
+                      ]
+                    }
+                  }
+                }
+              },
+              "executor": "nx:run-commands",
+              "configurations": {},
+              "parallelism": true
+            },
+            "serve-static": {
+              "dependsOn": [
+                "build"
+              ],
+              "executor": "@nx/web:file-server",
+              "options": {
+                "buildTarget": "shell:build",
+                "spa": true,
+                "port": 4200
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "build-deps": {
+              "dependsOn": [
+                "^build"
+              ],
+              "configurations": {},
+              "options": {},
+              "parallelism": true,
+              "executor": "nx:noop"
+            },
+            "watch-deps": {
+              "dependsOn": [
+                "build-deps"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "npx nx watch --projects shell --includeDependentProjects -- npx nx build-deps shell"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "test": {
+              "executor": "@nx/jest:jest",
+              "outputs": [
+                "{workspaceRoot}/coverage/{projectRoot}"
+              ],
+              "options": {
+                "jestConfig": "apps/ui/shell/jest.config.ts"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "lint": {
+              "executor": "@nx/eslint:lint",
+              "options": {},
+              "configurations": {},
+              "parallelism": true,
+              "cache": true,
+              "inputs": [
+                "default",
+                "{workspaceRoot}/.eslintrc.json",
+                "{workspaceRoot}/.eslintignore",
+                "{workspaceRoot}/eslint.config.mjs"
+              ]
+            },
+            "extract-i18n": {
+              "executor": "@angular-devkit/build-angular:extract-i18n",
+              "options": {
+                "buildTarget": "shell:build"
+              },
+              "configurations": {},
+              "parallelism": true
+            }
+          },
+          "metadata": {},
+          "name": "shell",
+          "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+          "prefix": "app",
+          "sourceRoot": "apps/ui/shell/src",
+          "tags": [],
+          "implicitDependencies": []
+        }
+      },
+      "auth": {
+        "name": "auth",
+        "type": "app",
+        "data": {
+          "root": "apps/ui/auth",
+          "projectType": "application",
+          "targets": {
+            "typecheck": {
+              "dependsOn": [
+                "^typecheck"
+              ],
+              "options": {
+                "cwd": "apps/ui/auth",
+                "command": "tsc --build --emitDeclarationOnly"
+              },
+              "cache": true,
+              "inputs": [
+                "production",
+                "!{workspaceRoot}/node_modules",
+                {
+                  "dependentTasksOutputFiles": "**/*.d.ts"
+                },
+                {
+                  "externalDependencies": [
+                    "typescript"
+                  ]
+                }
+              ],
+              "outputs": [],
+              "syncGenerators": [
+                "@nx/js:typescript-sync"
+              ],
+              "metadata": {
+                "technologies": [
+                  "typescript"
+                ],
+                "description": "Runs type-checking for the project.",
+                "help": {
+                  "command": "npx tsc --build --help",
+                  "example": {
+                    "args": [
+                      "--force"
+                    ]
+                  }
+                }
+              },
+              "executor": "nx:run-commands",
+              "configurations": {},
+              "parallelism": true
+            },
+            "build": {
+              "executor": "@nx/angular:webpack-browser",
+              "outputs": [
+                "{options.outputPath}"
+              ],
+              "options": {
+                "outputPath": "dist/apps/ui/auth",
+                "index": "apps/ui/auth/src/index.html",
+                "main": "apps/ui/auth/src/main.ts",
+                "polyfills": [
+                  "zone.js"
+                ],
+                "tsConfig": "apps/ui/auth/tsconfig.app.json",
+                "inlineStyleLanguage": "scss",
+                "assets": [
+                  {
+                    "glob": "**/*",
+                    "input": "apps/ui/auth/public"
+                  }
+                ],
+                "styles": [
+                  "apps/ui/auth/src/styles.scss"
+                ],
+                "scripts": [],
+                "customWebpackConfig": {
+                  "path": "apps/ui/auth/webpack.config.ts"
+                }
+              },
+              "configurations": {
+                "production": {
+                  "budgets": [
+                    {
+                      "type": "initial",
+                      "maximumWarning": "500kb",
+                      "maximumError": "1mb"
+                    },
+                    {
+                      "type": "anyComponentStyle",
+                      "maximumWarning": "4kb",
+                      "maximumError": "8kb"
+                    }
+                  ],
+                  "outputHashing": "all",
+                  "customWebpackConfig": {
+                    "path": "apps/ui/auth/webpack.prod.config.ts"
+                  }
+                },
+                "development": {
+                  "buildOptimizer": false,
+                  "optimization": false,
+                  "vendorChunk": true,
+                  "extractLicenses": false,
+                  "sourceMap": true,
+                  "namedChunks": true
+                }
+              },
+              "defaultConfiguration": "production",
+              "parallelism": true,
+              "cache": true,
+              "dependsOn": [
+                "^build"
+              ],
+              "inputs": [
+                "production",
+                "^production",
+                {
+                  "env": "NX_MF_DEV_REMOTES"
+                }
+              ]
+            },
+            "serve": {
+              "executor": "@nx/angular:dev-server",
+              "options": {
+                "port": 4202,
+                "proxyConfig": "apps/ui/auth/proxy.conf.json",
+                "publicHost": "http://localhost:4202"
+              },
+              "configurations": {
+                "production": {
+                  "buildTarget": "auth:build:production"
+                },
+                "development": {
+                  "buildTarget": "auth:build:development"
+                }
+              },
+              "defaultConfiguration": "development",
+              "parallelism": true
+            },
+            "preview": {
+              "options": {
+                "cwd": "apps/ui/auth",
+                "args": [
+                  "--node-env=production"
+                ],
+                "command": "webpack-cli serve"
+              },
+              "metadata": {
+                "technologies": [
+                  "webpack"
+                ],
+                "description": "Starts Webpack dev server in production mode",
+                "help": {
+                  "command": "npx webpack-cli serve --help",
+                  "example": {
+                    "options": {
+                      "args": [
+                        "--client-progress",
+                        "--history-api-fallback "
+                      ]
+                    }
+                  }
+                }
+              },
+              "executor": "nx:run-commands",
+              "configurations": {},
+              "parallelism": true
+            },
+            "serve-static": {
+              "dependsOn": [
+                "build"
+              ],
+              "executor": "@nx/web:file-server",
+              "defaultConfiguration": "production",
+              "options": {
+                "buildTarget": "auth:build",
+                "spa": true,
+                "port": 4202,
+                "watch": false
+              },
+              "configurations": {
+                "development": {
+                  "buildTarget": "auth:build:development"
+                },
+                "production": {
+                  "buildTarget": "auth:build:production"
+                }
+              },
+              "parallelism": true
+            },
+            "build-deps": {
+              "dependsOn": [
+                "^build"
+              ],
+              "configurations": {},
+              "options": {},
+              "parallelism": true,
+              "executor": "nx:noop"
+            },
+            "watch-deps": {
+              "dependsOn": [
+                "build-deps"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "npx nx watch --projects auth --includeDependentProjects -- npx nx build-deps auth"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "test": {
+              "executor": "@nx/jest:jest",
+              "outputs": [
+                "{workspaceRoot}/coverage/{projectRoot}"
+              ],
+              "options": {
+                "jestConfig": "apps/ui/auth/jest.config.ts"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "lint": {
+              "executor": "@nx/eslint:lint",
+              "options": {},
+              "configurations": {},
+              "parallelism": true,
+              "cache": true,
+              "inputs": [
+                "default",
+                "{workspaceRoot}/.eslintrc.json",
+                "{workspaceRoot}/.eslintignore",
+                "{workspaceRoot}/eslint.config.mjs"
+              ]
+            },
+            "extract-i18n": {
+              "executor": "@angular-devkit/build-angular:extract-i18n",
+              "options": {
+                "buildTarget": "auth:build"
+              },
+              "configurations": {},
+              "parallelism": true
+            }
+          },
+          "metadata": {},
+          "name": "auth",
+          "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+          "prefix": "app",
+          "sourceRoot": "apps/ui/auth/src",
+          "tags": [],
+          "implicitDependencies": []
+        }
+      },
+      "crm": {
+        "name": "crm",
+        "type": "app",
+        "data": {
+          "root": "apps/ui/crm",
+          "projectType": "application",
+          "targets": {
+            "typecheck": {
+              "dependsOn": [
+                "^typecheck"
+              ],
+              "options": {
+                "cwd": "apps/ui/crm",
+                "command": "tsc --build --emitDeclarationOnly"
+              },
+              "cache": true,
+              "inputs": [
+                "production",
+                "!{workspaceRoot}/node_modules",
+                {
+                  "dependentTasksOutputFiles": "**/*.d.ts"
+                },
+                {
+                  "externalDependencies": [
+                    "typescript"
+                  ]
+                }
+              ],
+              "outputs": [],
+              "syncGenerators": [
+                "@nx/js:typescript-sync"
+              ],
+              "metadata": {
+                "technologies": [
+                  "typescript"
+                ],
+                "description": "Runs type-checking for the project.",
+                "help": {
+                  "command": "npx tsc --build --help",
+                  "example": {
+                    "args": [
+                      "--force"
+                    ]
+                  }
+                }
+              },
+              "executor": "nx:run-commands",
+              "configurations": {},
+              "parallelism": true
+            },
+            "build": {
+              "executor": "@nx/angular:webpack-browser",
+              "outputs": [
+                "{options.outputPath}"
+              ],
+              "options": {
+                "outputPath": "dist/apps/ui/crm",
+                "index": "apps/ui/crm/src/index.html",
+                "main": "apps/ui/crm/src/main.ts",
+                "polyfills": [
+                  "zone.js"
+                ],
+                "tsConfig": "apps/ui/crm/tsconfig.app.json",
+                "inlineStyleLanguage": "scss",
+                "assets": [
+                  {
+                    "glob": "**/*",
+                    "input": "apps/ui/crm/public"
+                  }
+                ],
+                "styles": [
+                  "apps/ui/crm/src/styles.scss"
+                ],
+                "scripts": [],
+                "customWebpackConfig": {
+                  "path": "apps/ui/crm/webpack.config.ts"
+                }
+              },
+              "configurations": {
+                "production": {
+                  "budgets": [
+                    {
+                      "type": "initial",
+                      "maximumWarning": "500kb",
+                      "maximumError": "1mb"
+                    },
+                    {
+                      "type": "anyComponentStyle",
+                      "maximumWarning": "4kb",
+                      "maximumError": "8kb"
+                    }
+                  ],
+                  "outputHashing": "all",
+                  "customWebpackConfig": {
+                    "path": "apps/ui/crm/webpack.prod.config.ts"
+                  }
+                },
+                "development": {
+                  "buildOptimizer": false,
+                  "optimization": false,
+                  "vendorChunk": true,
+                  "extractLicenses": false,
+                  "sourceMap": true,
+                  "namedChunks": true
+                }
+              },
+              "defaultConfiguration": "production",
+              "parallelism": true,
+              "cache": true,
+              "dependsOn": [
+                "^build"
+              ],
+              "inputs": [
+                "production",
+                "^production",
+                {
+                  "env": "NX_MF_DEV_REMOTES"
+                }
+              ]
+            },
+            "serve": {
+              "executor": "@nx/angular:dev-server",
+              "options": {
+                "port": 4201,
+                "proxyConfig": "apps/ui/crm/proxy.conf.json",
+                "publicHost": "http://localhost:4201"
+              },
+              "configurations": {
+                "production": {
+                  "buildTarget": "crm:build:production"
+                },
+                "development": {
+                  "buildTarget": "crm:build:development"
+                }
+              },
+              "defaultConfiguration": "development",
+              "parallelism": true
+            },
+            "preview": {
+              "options": {
+                "cwd": "apps/ui/crm",
+                "args": [
+                  "--node-env=production"
+                ],
+                "command": "webpack-cli serve"
+              },
+              "metadata": {
+                "technologies": [
+                  "webpack"
+                ],
+                "description": "Starts Webpack dev server in production mode",
+                "help": {
+                  "command": "npx webpack-cli serve --help",
+                  "example": {
+                    "options": {
+                      "args": [
+                        "--client-progress",
+                        "--history-api-fallback "
+                      ]
+                    }
+                  }
+                }
+              },
+              "executor": "nx:run-commands",
+              "configurations": {},
+              "parallelism": true
+            },
+            "serve-static": {
+              "dependsOn": [
+                "build"
+              ],
+              "executor": "@nx/web:file-server",
+              "defaultConfiguration": "production",
+              "options": {
+                "buildTarget": "crm:build",
+                "spa": true,
+                "port": 4201,
+                "watch": false
+              },
+              "configurations": {
+                "development": {
+                  "buildTarget": "crm:build:development"
+                },
+                "production": {
+                  "buildTarget": "crm:build:production"
+                }
+              },
+              "parallelism": true
+            },
+            "build-deps": {
+              "dependsOn": [
+                "^build"
+              ],
+              "configurations": {},
+              "options": {},
+              "parallelism": true,
+              "executor": "nx:noop"
+            },
+            "watch-deps": {
+              "dependsOn": [
+                "build-deps"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "npx nx watch --projects crm --includeDependentProjects -- npx nx build-deps crm"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "test": {
+              "executor": "@nx/jest:jest",
+              "outputs": [
+                "{workspaceRoot}/coverage/{projectRoot}"
+              ],
+              "options": {
+                "jestConfig": "apps/ui/crm/jest.config.ts"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "lint": {
+              "executor": "@nx/eslint:lint",
+              "options": {},
+              "configurations": {},
+              "parallelism": true,
+              "cache": true,
+              "inputs": [
+                "default",
+                "{workspaceRoot}/.eslintrc.json",
+                "{workspaceRoot}/.eslintignore",
+                "{workspaceRoot}/eslint.config.mjs"
+              ]
+            },
+            "extract-i18n": {
+              "executor": "@angular-devkit/build-angular:extract-i18n",
+              "options": {
+                "buildTarget": "crm:build"
+              },
+              "configurations": {},
+              "parallelism": true
+            }
+          },
+          "metadata": {},
+          "name": "crm",
+          "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+          "prefix": "app",
+          "sourceRoot": "apps/ui/crm/src",
+          "tags": [],
+          "implicitDependencies": []
+        }
+      }
+    },
+    "dependencies": {
+      "ms-auth-e2e": [
+        {
+          "source": "ms-auth-e2e",
+          "target": "ms-auth",
+          "type": "implicit"
+        }
+      ],
+      "ms-crm-e2e": [
+        {
+          "source": "ms-crm-e2e",
+          "target": "ms-crm",
+          "type": "implicit"
+        }
+      ],
+      "shell-e2e": [
+        {
+          "source": "shell-e2e",
+          "target": "shell",
+          "type": "implicit"
+        }
+      ],
+      "auth-e2e": [
+        {
+          "source": "auth-e2e",
+          "target": "auth",
+          "type": "implicit"
+        }
+      ],
+      "ms-auth": [],
+      "crm-e2e": [
+        {
+          "source": "crm-e2e",
+          "target": "crm",
+          "type": "implicit"
+        }
+      ],
+      "ms-crm": [],
+      "shell": [
+        {
+          "source": "shell",
+          "target": "auth",
+          "type": "dynamic"
+        },
+        {
+          "source": "shell",
+          "target": "crm",
+          "type": "dynamic"
+        }
+      ],
+      "auth": [],
+      "crm": []
+    }
+  }
+}
